@@ -37,10 +37,7 @@ RUN sed -i 's/\r$//' docker/entrypoint.sh \
     && chmod +x docker/entrypoint.sh \
     && mkdir -p database storage/framework/sessions storage/framework/views storage/framework/cache/data storage/logs bootstrap/cache \
     && touch database/database.sqlite \
-    && chown -R sail:sail /var/www/html \
-    && chmod -R 775 storage bootstrap/cache database
-
-USER sail
+    && chmod -R 777 storage bootstrap/cache database
 
 ENV PORT=10000
 
