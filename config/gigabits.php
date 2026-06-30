@@ -21,6 +21,8 @@ return [
 
     'slogan' => 'Ensemble, construisons un avenir connecté et sécurisé.',
 
+    'logo' => 'images/logo.png',
+
     /*
     |--------------------------------------------------------------------------
     | Chemins des images (dossier public/images/)

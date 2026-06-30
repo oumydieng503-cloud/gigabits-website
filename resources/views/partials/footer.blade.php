@@ -2,13 +2,13 @@
     <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div class="grid gap-10 md:grid-cols-3">
             <div>
-                <div class="flex items-center gap-3">
-                    <img src="{{ asset('images/logo.svg') }}" alt="" class="h-10 w-10 brightness-0 invert">
-                    <div>
-                        <span class="block text-lg font-bold">GIGABITS SARL</span>
-                        <span class="text-sm text-giga-200">Solutions technologiques</span>
-                    </div>
-                </div>
+                <a href="{{ route('home') }}" class="inline-block rounded-xl bg-white p-3">
+                    <img
+                        src="{{ asset(config('gigabits.logo')) }}"
+                        alt="{{ config('gigabits.name') }}"
+                        class="h-16 w-auto"
+                    >
+                </a>
                 <p class="mt-4 text-sm leading-relaxed text-giga-200">
                     {{ config('gigabits.slogan') }}
                 </p>

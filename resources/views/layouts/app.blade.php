@@ -8,6 +8,9 @@
 
     <title>@yield('title', config('gigabits.name'))</title>
 
+    <link rel="icon" type="image/png" href="{{ asset(config('gigabits.logo')) }}">
+    <link rel="apple-touch-icon" href="{{ asset(config('gigabits.logo')) }}">
+
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800" rel="stylesheet" />
 

@@ -1,11 +1,11 @@
 <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="{{ route('home') }}" class="flex items-center gap-3">
-            <img src="{{ asset('images/logo.svg') }}" alt="{{ config('gigabits.name') }}" class="h-10 w-10">
-            <div>
-                <span class="block text-lg font-bold leading-tight text-giga-800">GIGABITS</span>
-                <span class="block text-xs font-medium uppercase tracking-wider text-giga-600">SARL</span>
-            </div>
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <a href="{{ route('home') }}" class="flex items-center shrink-0">
+            <img
+                src="{{ asset(config('gigabits.logo')) }}"
+                alt="{{ config('gigabits.name') }}"
+                class="h-14 w-auto sm:h-16"
+            >
         </a>
 
         <nav class="hidden items-center gap-8 md:flex">
