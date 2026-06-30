@@ -11,6 +11,13 @@ if [ -z "$APP_KEY" ]; then
 fi
 
 php artisan config:clear
+
+if [ "$DB_CONNECTION" = "sqlite" ]; then
+    mkdir -p database
+    touch database/database.sqlite
+    chmod 664 database/database.sqlite
+fi
+
 php artisan migrate --force
 php artisan db:seed --force
 php artisan config:cache

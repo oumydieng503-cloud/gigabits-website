@@ -35,6 +35,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install \
     pdo \
     pdo_pgsql \
+    pdo_sqlite \
     mbstring \
     xml \
     curl \

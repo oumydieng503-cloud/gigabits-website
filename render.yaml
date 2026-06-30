@@ -1,9 +1,3 @@
-databases:
-  - name: gigabits-db
-    plan: free
-    databaseName: gigabits
-    user: gigabits
-
 services:
   - type: web
     name: gigabits-website
@@ -28,11 +22,9 @@ services:
       - key: LOG_LEVEL
         value: error
       - key: DB_CONNECTION
-        value: pgsql
-      - key: DB_URL
-        fromDatabase:
-          name: gigabits-db
-          property: connectionString
+        value: sqlite
+      - key: DB_DATABASE
+        value: /var/www/html/database/database.sqlite
       - key: SESSION_DRIVER
         value: database
       - key: CACHE_STORE
