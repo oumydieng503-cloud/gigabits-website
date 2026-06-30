@@ -25,21 +25,7 @@ RUN composer install \
     --prefer-dist
 
 
-FROM php:8.2-cli-bookworm
-
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        libsqlite3-dev \
-        libzip-dev \
-        libxml2-dev \
-    && docker-php-ext-install -j"$(nproc)" \
-        pdo_sqlite \
-        mbstring \
-        zip \
-        bcmath \
-        xml \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+FROM laravelsail/php82-composer:latest
 
 WORKDIR /var/www/html
 
