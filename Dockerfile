@@ -27,19 +27,18 @@ RUN composer install \
 
 FROM php:8.2-cli-bookworm
 
-RUN apt-get update && apt-get install -y \
-    git \
-    unzip \
-    libsqlite3-dev \
-    libzip-dev \
-    libxml2-dev \
-    && docker-php-ext-install \
-    pdo \
-    pdo_sqlite \
-    mbstring \
-    xml \
-    zip \
-    bcmath \
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libsqlite3-dev \
+        libzip-dev \
+        libxml2-dev \
+    && docker-php-ext-install -j"$(nproc)" \
+        pdo_sqlite \
+        mbstring \
+        zip \
+        bcmath \
+        xml \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/html
