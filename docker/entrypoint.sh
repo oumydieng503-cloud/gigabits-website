@@ -1,29 +1,25 @@
 #!/bin/sh
 set -e
 
-if [ -n "$RENDER_EXTERNAL_URL" ] && [ -z "$APP_URL" ]; then
-    export APP_URL="$RENDER_EXTERNAL_URL"
+if [ -n "$RENDER_EXTERNAL_URL" ]; then
+    export APP_URL="${APP_URL:-$RENDER_EXTERNAL_URL}"
 fi
 
-if [ -z "$APP_KEY" ]; then
-    echo "ERREUR: APP_KEY manquant. Ajoutez-le dans les variables Render."
-    exit 1
-fi
+# Render generateValue ne met pas toujours le prefixe base64: requis par Laravel
+case "${APP_KEY:-}" in
+    base64:*) ;;
+    *)
+        export APP_KEY="base64:$(openssl rand -base64 32)"
+        ;;
+esac
+
+mkdir -p database storage/framework/sessions storage/framework/views storage/framework/cache/data storage/logs bootstrap/cache
+touch database/database.sqlite
 
 php artisan config:clear
-
-if [ "$DB_CONNECTION" = "sqlite" ]; then
-    mkdir -p database
-    touch database/database.sqlite
-    chmod 664 database/database.sqlite
-fi
-
 php artisan migrate --force
-php artisan db:seed --force
+php artisan db:seed --force || true
 php artisan storage:link --force 2>/dev/null || true
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
 
-echo "Demarrage sur le port ${PORT}..."
-php artisan serve --host=0.0.0.0 --port="${PORT}"
+echo "Demarrage sur le port ${PORT:-10000}..."
+exec php artisan serve --host=0.0.0.0 --port="${PORT:-10000}"

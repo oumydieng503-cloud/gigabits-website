@@ -33,9 +33,14 @@ COPY . .
 COPY --from=vendor /app/vendor ./vendor
 COPY --from=frontend /app/public/build ./public/build
 
-RUN chmod -R 775 storage bootstrap/cache \
-    && sed -i 's/\r$//' docker/entrypoint.sh \
-    && chmod +x docker/entrypoint.sh
+RUN sed -i 's/\r$//' docker/entrypoint.sh \
+    && chmod +x docker/entrypoint.sh \
+    && mkdir -p database storage/framework/sessions storage/framework/views storage/framework/cache/data storage/logs bootstrap/cache \
+    && touch database/database.sqlite \
+    && chown -R sail:sail /var/www/html \
+    && chmod -R 775 storage bootstrap/cache database
+
+USER sail
 
 ENV PORT=10000
 
