@@ -1,0 +1,7 @@
+# Copier ce fichier à la RACINE du site sur l'hébergeur
+# (si le domaine pointe vers public_html et non vers public/)
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

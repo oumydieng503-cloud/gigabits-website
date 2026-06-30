@@ -1,0 +1,82 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-giga-50: #eff6ff;
+    --color-giga-100: #dbeafe;
+    --color-giga-200: #bfdbfe;
+    --color-giga-300: #93c5fd;
+    --color-giga-400: #60a5fa;
+    --color-giga-500: #3b82f6;
+    --color-giga-600: #2563eb;
+    --color-giga-700: #1d4ed8;
+    --color-giga-800: #1e3a8a;
+    --color-giga-900: #172554;
+    --color-giga-950: #0f172a;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl bg-giga-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-giga-600/25 transition hover:-translate-y-0.5 hover:bg-giga-700 focus:outline-none focus:ring-2 focus:ring-giga-500 focus:ring-offset-2;
+    }
+
+    .btn-outline {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/80 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white hover:text-giga-800;
+    }
+
+    .section-title {
+        @apply text-3xl font-extrabold tracking-tight text-giga-900 md:text-4xl;
+    }
+
+    .section-subtitle {
+        @apply mt-3 max-w-2xl text-lg text-slate-600;
+    }
+
+    .card {
+        @apply rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-giga-900/5;
+    }
+
+    .hero-overlay {
+        @apply absolute inset-0 bg-gradient-to-r from-giga-950/85 via-giga-900/50 to-transparent;
+    }
+
+    .service-gradient-camera {
+        @apply bg-gradient-to-br from-slate-800 via-slate-700 to-giga-900;
+    }
+
+    .service-gradient-network {
+        @apply bg-gradient-to-br from-giga-800 via-blue-700 to-cyan-800;
+    }
+
+    .service-gradient-home {
+        @apply bg-gradient-to-br from-amber-700 via-orange-800 to-giga-900;
+    }
+
+    .service-gradient-solar {
+        @apply bg-gradient-to-br from-yellow-500 via-amber-600 to-orange-700;
+    }
+
+    .service-gradient-industry {
+        @apply bg-gradient-to-br from-zinc-700 via-slate-800 to-giga-950;
+    }
+
+    .gallery-item {
+        @apply relative overflow-hidden rounded-2xl shadow-lg;
+    }
+
+    .gallery-item img {
+        @apply h-full w-full object-cover object-center transition duration-500 hover:scale-105;
+    }
+}
