@@ -30,15 +30,14 @@ FROM php:8.2-cli-bookworm
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
-    libpq-dev \
+    libsqlite3-dev \
     libzip-dev \
+    libxml2-dev \
     && docker-php-ext-install \
     pdo \
-    pdo_pgsql \
     pdo_sqlite \
     mbstring \
     xml \
-    curl \
     zip \
     bcmath \
     && rm -rf /var/lib/apt/lists/*
@@ -49,8 +48,8 @@ COPY . .
 COPY --from=vendor /app/vendor ./vendor
 COPY --from=frontend /app/public/build ./public/build
 
-RUN composer dump-autoload --optimize \
-    && chmod -R 775 storage bootstrap/cache \
+RUN chmod -R 775 storage bootstrap/cache \
+    && sed -i 's/\r$//' docker/entrypoint.sh \
     && chmod +x docker/entrypoint.sh
 
 ENV PORT=10000
