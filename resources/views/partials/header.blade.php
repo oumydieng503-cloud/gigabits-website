@@ -12,6 +12,7 @@
             <a href="{{ route('home') }}" class="text-sm font-medium {{ request()->routeIs('home') ? 'text-giga-700' : 'text-slate-600 hover:text-giga-700' }}">Accueil</a>
             <a href="{{ route('services.index') }}" class="text-sm font-medium {{ request()->routeIs('services.*') ? 'text-giga-700' : 'text-slate-600 hover:text-giga-700' }}">Services</a>
             <a href="{{ route('team.index') }}" class="text-sm font-medium {{ request()->routeIs('team.*') ? 'text-giga-700' : 'text-slate-600 hover:text-giga-700' }}">Notre équipe</a>
+            <a href="{{ route('careers.index') }}" class="text-sm font-medium {{ request()->routeIs('careers.*') ? 'text-giga-700' : 'text-slate-600 hover:text-giga-700' }}">Carrières</a>
             <a href="{{ route('contact.index') }}" class="btn-primary !py-2 !px-4">Contact</a>
         </nav>
 
@@ -27,6 +28,7 @@
             <a href="{{ route('home') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-giga-50">Accueil</a>
             <a href="{{ route('services.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-giga-50">Services</a>
             <a href="{{ route('team.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-giga-50">Notre équipe</a>
+            <a href="{{ route('careers.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-giga-50">Carrières</a>
             <a href="{{ route('contact.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium text-giga-700 hover:bg-giga-50">Contact</a>
         </div>
     </nav>

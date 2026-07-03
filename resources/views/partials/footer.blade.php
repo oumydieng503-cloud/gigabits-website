@@ -20,6 +20,7 @@
                     <li><a href="{{ route('home') }}" class="hover:text-white">Accueil</a></li>
                     <li><a href="{{ route('services.index') }}" class="hover:text-white">Services</a></li>
                     <li><a href="{{ route('team.index') }}" class="hover:text-white">Notre équipe</a></li>
+                    <li><a href="{{ route('careers.index') }}" class="hover:text-white">Carrières</a></li>
                     <li><a href="{{ route('contact.index') }}" class="hover:text-white">Contact</a></li>
                 </ul>
             </div>

@@ -13,6 +13,7 @@ return [
 
     'email' => 'gigabitssarl@gmail.com',
     'mail_to' => env('MAIL_CONTACT_TO', 'gigabitssarl@gmail.com'),
+    'admin_password' => env('ADMIN_PASSWORD', ''),
     'location' => 'Dakar, Keur Massar',
 
     'whatsapp' => '221768016335',
